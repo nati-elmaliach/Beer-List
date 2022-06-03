@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+ 
+.beer-list {
+  display: flex; 
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+} 
+
+.beer-list-columns {
+  flex-direction: column;
+}
+
+.ant-card-body {  
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+ 
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.load-more-btn {
+  margin: 2rem;
+} 
+
+
+.ant-page-header-heading-left {
+  flex-wrap: wrap !important;
+} 
+
+
+@media screen and (max-width:800px) {
+  .beer-list-columns {
+    flex-direction: row;
+  } 
+}
