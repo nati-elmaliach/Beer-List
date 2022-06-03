@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'antd';
+import { Card, Tooltip } from 'antd';
 import Beer from '../types/Beer';
 
 interface BeerCardProps {
@@ -18,37 +18,26 @@ const BeerCardTitle: React.FC<BeerCardTitleProps> = ({ title, subTitle }) => {
     </div>
   );
 };
+
 const BeerCard: React.FC<BeerCardProps> = ({ data }) => {
+
+  const getIngredients = () => {
+    const keys = Object.keys(data.ingredients)
+    const {yeast} = data.ingredients
+    const title = keys.join("\n")
+    return title + " - "  + yeast
+  }
   return (
-    <Card
-      style={{
-        flex: '50%' /* or - flex: 0 50% - or - flex-basis: 50% - */,
-        width: '50rem',
-        marginTop: 16,
-        textAlign: 'initial',
-      }}
-    >
+    <Card className='card-style'>
       <Card.Meta
         title={<BeerCardTitle title={data.name} subTitle={data.tagline} />}
         description={data.description.substring(0, 250) + '...'}
       />
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <img
-          style={{
-            marginRight: '1rem',
-            width: '3rem',
-            height: '5rem',
-            objectFit: 'contain',
-          }}
-          src={data.image_url}
-        />
+      <div className='image-container-style'>
+      <Tooltip title={getIngredients()}>
+        <img  className='image-style' src={data.image_url} />
+        </Tooltip>
       </div>
     </Card>
   );

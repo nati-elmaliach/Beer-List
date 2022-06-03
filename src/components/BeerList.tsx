@@ -7,6 +7,8 @@ const BeerList = () => {
   const [beers, loadMore] = useBeers();
   const [rowsNumber, setRowsNumber] = useState(1);
 
+  console.log(beers);
+
   const rowClassName = rowsNumber === 2 ? '' : 'beer-list-columns';
   const getContent = () => {
     if (beers.length) {
@@ -34,7 +36,7 @@ const BeerList = () => {
         <Radio.Button value={2}>Two Columns</Radio.Button>
       </Radio.Group>
       {getContent()}
-      {beers.length  ? (
+      {beers.length ? (
         <Button className='load-more-btn' type='primary' onClick={loadMore}>
           Load more
         </Button>

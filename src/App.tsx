@@ -9,7 +9,7 @@ function App() {
       <PageHeader
         style={{ justifyContent: 'center', flexWrap: 'wrap' }}
         title='Beers'
-        subTitle='Beers are the best, here is a list for you to explore!'
+        subTitle='Beer is the best!'
       />
       <BeerList />
     </div>
